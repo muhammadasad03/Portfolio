@@ -8,7 +8,11 @@ import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const siteUrl = "https://aamiryameen.com"
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000")
 const siteTitle = "Muhammad Asad - AI/ML Engineer"
 const siteDescription =
   "AI/ML Engineer with 5 years of experience in Python, AI/ML, AI Agents, Generative AI, RAG, N8N, Agentic AI, GHL Automation and Custom AI Solutions."
